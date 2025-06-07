@@ -1,0 +1,92 @@
+# ======================== Elasticsearch Configuration =========================
+#
+# Please consult the documentation for further information on configuration options:
+# https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+
+# ---------------------------------- Cluster -----------------------------------
+
+# Use a descriptive name for your cluster:
+#
+cluster.name: app-monitoring
+
+# Run in single-node mode
+#
+discovery.type: single-node
+
+# Create a new cluster with the current node only
+# Additional nodes can still join the cluster later
+# cluster.initial_master_nodes: ["app-monitoring-0"]
+
+# ------------------------------------ Node ------------------------------------
+
+# Use a descriptive name for the node:
+#
+node.name: app-monitoring-0
+
+# ----------------------------------- Paths ------------------------------------
+
+# Path to directory where to store the data (separate multiple locations by comma):
+#
+path.data: /data/elasticsearch
+
+# Path to log files:
+#
+path.logs: /var/log/elasticsearch
+#
+# ----------------------------------- Memory -----------------------------------
+#
+# Lock the memory on startup:
+#
+#bootstrap.memory_lock: true
+#
+# Make sure that the heap size is set to about half the memory available
+# on the system and that the owner of the process is allowed to use this
+# limit.
+#
+# Elasticsearch performs poorly when the system is swapping the memory.
+#
+# ---------------------------------- Network -----------------------------------
+
+# By default Elasticsearch is only accessible on localhost. Set a different
+# address here to expose this node on the network:
+#
+network.host: 127.0.0.1
+
+# By default Elasticsearch listens for HTTP traffic on the first free port it
+# finds starting at 9200. Set a specific HTTP port here:
+#
+http.port: 9200
+
+#----------------------- BEGIN SECURITY AUTO CONFIGURATION -----------------------
+#
+# The following settings, TLS certificates, and keys have been automatically
+# generated to configure Elasticsearch security features on 07-06-2025 06:00:17
+#
+# --------------------------------------------------------------------------------
+
+# Enable security features
+xpack.security.enabled: true
+
+xpack.security.enrollment.enabled: true
+
+# Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
+xpack.security.http.ssl:
+  enabled: true
+  keystore.path: certs/http.p12
+
+# Enable encryption and mutual authentication between cluster nodes
+xpack.security.transport.ssl:
+  enabled: true
+  verification_mode: certificate
+  keystore.path: certs/transport.p12
+  truststore.path: certs/transport.p12
+
+# Allow HTTP API connections only from localhost
+# Connections are encrypted and require user authentication
+http.host: 127.0.0.1
+
+# Allow other nodes to join the cluster from nowhere
+# Connections are encrypted and mutually authenticated
+transport.host: 127.0.0.1
+
+#----------------------- END SECURITY AUTO CONFIGURATION -------------------------

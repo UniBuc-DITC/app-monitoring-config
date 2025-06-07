@@ -1,0 +1,2 @@
+## GC logging
+-Xlog:gc*,gc+age=trace,safepoint:file=/var/log/elasticsearch/gc.log:utctime,level,pid,tags:filecount=8,filesize=4m
