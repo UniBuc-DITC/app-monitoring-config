@@ -15,13 +15,13 @@ discovery.type: single-node
 
 # Create a new cluster with the current node only
 # Additional nodes can still join the cluster later
-# cluster.initial_master_nodes: ["app-monitoring-0"]
+# cluster.initial_master_nodes: ["app-monitoring"]
 
 # ------------------------------------ Node ------------------------------------
 
 # Use a descriptive name for the node:
 #
-node.name: app-monitoring-0
+node.name: app-monitoring
 
 # ----------------------------------- Paths ------------------------------------
 
