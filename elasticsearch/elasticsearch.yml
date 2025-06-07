@@ -88,5 +88,4 @@ http.host: 127.0.0.1
 # Allow other nodes to join the cluster from nowhere
 # Connections are encrypted and mutually authenticated
 transport.host: 127.0.0.1
-
 #----------------------- END SECURITY AUTO CONFIGURATION -------------------------
